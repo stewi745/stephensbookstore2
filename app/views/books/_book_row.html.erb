@@ -14,8 +14,11 @@
             <%= f.hidden_field :book_id, value: book.id %>
             <%= f.submit "Add to Cart", class: "btn btn-primary" %>
 			<div class="input-group-btn">
+			<%= link_to 'View', book, class:"btn btn-primary"%>
+			<div class="input-group-btn">
 			<%= link_to "Delete", book, { data: { confirm: "Are you sure you wish to delete this book? '#{book.title}' from the list?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
           </div>
+		  </div>
 		  </div>
         </div>
       <% end %>

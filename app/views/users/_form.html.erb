@@ -41,7 +41,11 @@
   </div>
   <div class="field">
     <%= f.label :payment_method %><br>
-    <%= f.text_field :payment_method %>
+    <%= f.select :payment_method, [['Visa', 'Visa'],['Visa Debit', 'Visa Debit'],['Mastercard', 'Mastercard'],['','']]%>
+  </div>
+  <div class-"field">
+      <%= f.label :admin %><br>
+    <%= f.select :admin, [['yes', 'yes'],['no', 'no'],['','']]%>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,8 +1,24 @@
 class BooksController < ApplicationController
-  
+
+
+
   def index
     @books = Book.all
     @order_item = current_order.order_items.new
+    if params[:search]
+      @books = Book.search(params[:search]).order("created_at DESC")
+
+    else
+      @books = Book.order("created_at DESC")
+    end
+  end
+
+  def search
+  if params[:query]
+    @books = Book.search(params[:query])
+  else
+    @books = []
+  end
   end
   
   
@@ -50,8 +66,9 @@ class BooksController < ApplicationController
   def destroy
 	@book = Book.find(params[:id])
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Book was successfully destroyed.' }
+    
+	respond_to do |format|
+      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
