@@ -48,6 +48,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
+	@book = Book.find(params[:id])
     @book.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'Book was successfully destroyed.' }

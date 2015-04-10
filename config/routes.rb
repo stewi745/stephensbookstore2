@@ -23,6 +23,12 @@ Rails.application.routes.draw do
 
   get 'books/index'
   
+  get 'books/create'
+  
+  get 'books/update'
+  
+  get 'books/destroy'
+  
   match '/signin', :to => 'sessions#new', :via => [:get, :post]
   match '/signout', :to => 'sessions#destroy', :via => [:get, :post]
   
