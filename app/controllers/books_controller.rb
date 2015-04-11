@@ -1,7 +1,5 @@
 class BooksController < ApplicationController
 
-
-
   def index
     @books = Book.all
     @order_item = current_order.order_items.new
@@ -20,7 +18,6 @@ class BooksController < ApplicationController
     @books = []
   end
   end
-  
   
     def show
 	@book = Book.find(params[:id])
